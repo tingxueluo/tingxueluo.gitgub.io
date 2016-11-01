@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .nav{overflow: hidden;margin: 0;padding: 0}
+        .nav li{
+            width: 100px;
+            height: 30px;
+            border-left: 1px solid #ddd;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            list-style: none;
+            float: left;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .nav li:last-child{border-right: 1px solid #ddd;}
+        .nav_active{background-color: #ddd}
+        .p{width: 405px;height: 405px;position: relative;}
+        .p div{position: absolute;width: 100%;height: 100%;display: none;}
+        .p div.show{display: block}
+    </style>
+   
+</head>
+<body>
+    <ul class="nav">
+        <li class="nav_active">红色</li>
+        <li>蓝色</li>
+        <li>绿色</li>
+        <li>黄色</li>
+    </ul>
+    <div class="p">
+        <div class="show" style="background-color: #ff0000"></div>
+        <div style="background-color: #0000ff"></div>
+        <div style="background-color: green"></div>
+        <div style="background-color: yellow"></div>
+    </div>
+    <script type="text/javascript" src="http://www.16889999.com/special/js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.nav li').click(function(){
+                //标题
+                $('.nav_active').removeClass('nav_active');
+                $(this).addClass('nav_active');
+                //内容
+                $('.show').removeClass('show');
+                $('.p div').eq($(this).index()).addClass('show');
+            })
+        });
+    </script>
+</body>
+</html>
